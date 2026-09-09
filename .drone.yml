@@ -1,0 +1,36 @@
+kind: pipeline
+type: docker
+name: deploy_puentecubanobot
+
+trigger:
+  branch:
+    - master
+
+volumes:
+- name: docker_sock
+  host:
+    path: /var/run/docker.sock
+
+steps:
+- name: build
+  image: docker:24.0
+  commands:
+    - docker build -t puentecubanobot .
+  volumes:
+    - name: docker_sock
+      path: /var/run/docker.sock
+
+- name: deploy
+  image: docker:24.0
+  commands:
+    - echo "TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN" > .env
+    - echo "API_BASE_URL=$API_BASE_URL" >> .env
+    - mkdir /puentecubanobot && mv * /puentecubanobot/ && cd /puentecubanobot
+    - docker compose down || true
+    - docker compose up -d --build --force-recreate
+    - rm .env
+  volumes:
+    - name: docker_sock
+      path: /var/run/docker.sock
+  depends_on:
+    - build
