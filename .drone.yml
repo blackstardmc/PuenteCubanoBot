@@ -22,11 +22,18 @@ steps:
 
 - name: deploy
   image: docker:24.0
+  environment:
+   TELEGRAM_BOT_TOKEN:
+     from_secret: TELEGRAM_BOT_TOKEN
+   API_BASE_URL:
+     from_secret: API_BASE_URL
   commands:
     - mkdir /puentecubanobot && mv * /puentecubanobot/ && cd /puentecubanobot
-    - echo "TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN" > .env
-    - echo "API_BASE_URL=$API_BASE_URL" >> .env
-    - ls -la
+    - |
+      cat > .env << EOF
+      TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      API_BASE_URL=${API_BASE_URL}
+      EOF
     - docker compose down || true
     - docker compose up -d --build --force-recreate
   volumes:
