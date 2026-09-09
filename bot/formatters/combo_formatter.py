@@ -16,7 +16,7 @@ def format_combo_price(
 
     formatted = f"{price:,.{fixed}f}"
 
-    return f"{formatted} {code}".strip()
+    return f"{formatted} {symbol}".strip()
 
 
 def format_combos(data: dict) -> str:
