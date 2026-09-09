@@ -1,10 +1,26 @@
 from html import escape
 
 
-from html import escape
+CATEGORY_EMOJIS = {
+    "CÁRNICOS": "🥩🥩🍖",
+    "LÁCTEOS": "🥛🧈🍼",
+    "LÍQUIDOS": "🥛🍷🥃🍹",
+    "GRANOS Y PASTAS": "🍚🍜",
+    "HIGIENE Y ASEO": "🧻🧼🧴🧽",
+    "BEBIDAS": "🍷🥃🍹🧉🍸🧃",
+    "PAQUETES ADICIONALES": "📦",
+}
+
 
 def normalize_category_name(name: str) -> str:
     return name.strip().upper()
+
+
+def get_category_emoji(name: str) -> str:
+    normalized = normalize_category_name(name)
+    return CATEGORY_EMOJIS.get(normalized, "📦")
+
+
 
 def format_combo_price(
     price: float,
@@ -42,9 +58,10 @@ def format_combos(data: dict) -> str:
 
     for category_name, combos in categories.items():
         normalized_name = normalize_category_name(category_name)
+        emoji = get_category_emoji(category_name)
 
         lines.append(
-            f"<b>{escape(normalized_name)}</b>"
+            f"<b>{escape(normalized_name)} {emoji}</b>"
         )
         lines.append("")
 
