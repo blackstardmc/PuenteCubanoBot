@@ -1,0 +1,15 @@
+services:
+  puente-cubano-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: puente-cubano-bot
+
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    environment:
+      PYTHONUNBUFFERED: "1"
