@@ -60,13 +60,14 @@ def format_combos(data: dict) -> str:
     for category_name, combos in categories.items():
         normalized_name = normalize_category_name(category_name)
         emoji = get_category_emoji(category_name)
-
+        lines.append("")
         lines.append(
             f"<b>{escape(normalized_name)} {emoji}</b>"
         )
         lines.append("")
 
         for combo in combos:
+          
             name = escape(
                 combo.get("name", "")
             )
