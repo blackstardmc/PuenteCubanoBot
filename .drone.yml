@@ -28,7 +28,6 @@ steps:
    API_BASE_URL:
      from_secret: API_BASE_URL
   commands:
-    - mkdir /puentecubanobot && mv * /puentecubanobot/ && cd /puentecubanobot
     - |
       cat > .env << EOF
       TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
