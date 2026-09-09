@@ -29,7 +29,6 @@ steps:
     - ls -la
     - docker compose down || true
     - docker compose up -d --build --force-recreate
-    - rm .env
   volumes:
     - name: docker_sock
       path: /var/run/docker.sock
