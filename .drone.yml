@@ -30,8 +30,8 @@ steps:
   commands:
     - |
       cat > .env << EOF
-      TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
-      API_BASE_URL=${API_BASE_URL}
+      TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN
+      API_BASE_URL=$API_BASE_URL
       EOF
     - docker compose down || true
     - docker compose up -d --build --force-recreate
