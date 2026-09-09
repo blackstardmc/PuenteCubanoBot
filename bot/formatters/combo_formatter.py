@@ -88,7 +88,7 @@ def format_combos(data: dict) -> str:
             else:
                 lines.append(
                     f"{name} = "
-                    f"<b>{escape(price)}</b>"
+                    f"{escape(price)}"
                 )
 
             lines.append("")
