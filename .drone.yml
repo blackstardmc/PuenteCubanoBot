@@ -23,9 +23,10 @@ steps:
 - name: deploy
   image: docker:24.0
   commands:
+    - mkdir /puentecubanobot && mv * /puentecubanobot/ && cd /puentecubanobot
     - echo "TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN" > .env
     - echo "API_BASE_URL=$API_BASE_URL" >> .env
-    - mkdir /puentecubanobot && mv * /puentecubanobot/ && cd /puentecubanobot
+    - ls -la
     - docker compose down || true
     - docker compose up -d --build --force-recreate
     - rm .env
