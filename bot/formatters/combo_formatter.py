@@ -9,7 +9,7 @@ CATEGORY_EMOJIS = {
     "HIGIENE Y ASEO": "🧻🧼🧴🧽",
     "BEBIDAS": "🍷🥃🍹🧉🍸🧃",
     "PAQUETES ADICIONALES": "📦",
-"COCINA" : "🧂🧄"
+"COCINA" : "🧂🧄🧅"
 }
 
 
