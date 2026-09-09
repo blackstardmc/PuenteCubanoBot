@@ -90,7 +90,7 @@ def format_combos(data: dict) -> str:
                     f"{name} = "
                     f"{escape(price)}"
                 )
-
+                lines.append("")
     lines.extend([
         "💎💎💎💎💎 <b>ACEPTAMOS PAGOS DE DIVERSOS PAÍSES.</b>",
         "",
