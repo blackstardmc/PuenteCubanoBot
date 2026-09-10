@@ -97,13 +97,7 @@ def format_combos(data: dict) -> str:
         "",
         "COMUNÍCATE CON NOSOTROS Y TE DECIMOS "
         "SI HAY PAGOS PARA TU REGIÓN Y LA TASA DE CAMBIO 💎💎💎💎",
-        "",
-        "⬇️ Si le surge una duda o necesita más información, "
-        "escriba al PV:",
-        "",
-        "👉 +53 55075537",
-        "",
-        "Contamos con referencias 👉📱👌🇲🇽🤝🇨🇺",
+        
         "",
         "<b>Chat de grupo:</b>",
         "",
